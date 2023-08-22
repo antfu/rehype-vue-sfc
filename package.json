@@ -1,0 +1,92 @@
+{
+  "name": "rehype-vue-sfc",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.6.12",
+  "description": "A rehype plugin converting HTML AST to a Vue single file component",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/antfu",
+  "homepage": "https://github.com/antfu/rehype-vue-sfc#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antfu/rehype-vue-sfc.git"
+  },
+  "bugs": "https://github.com/antfu/rehype-vue-sfc/issues",
+  "keywords": [
+    "rehype",
+    "vue",
+    "vue-sfc",
+    "unified"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@types/hast": "^3.0.0",
+    "unified": "^11.0.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.40.2",
+    "@antfu/ni": "^0.21.5",
+    "@antfu/utils": "^0.7.6",
+    "@types/hast": "^3.0.0",
+    "@types/mdast": "^4.0.0",
+    "@types/node": "^20.5.2",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.47.0",
+    "esno": "^0.17.0",
+    "fast-glob": "^3.3.1",
+    "hast-util-raw": "^9.0.0",
+    "lint-staged": "^14.0.1",
+    "pnpm": "^8.6.12",
+    "rehype-format": "^4.0.1",
+    "rehype-raw": "^6.1.1",
+    "rehype-sanitize": "^5.0.1",
+    "rehype-shikiji": "^0.6.1",
+    "rehype-stringify": "^9.0.4",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.2",
+    "remark-rehype": "^10.1.0",
+    "rimraf": "^5.0.1",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.1.6",
+    "unbuild": "^1.2.1",
+    "unified": "^11.0.2",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.2"
+  },
+  "resolutions": {
+    "unified": "^11.0.2",
+    "@types/hast": "^3.0.0",
+    "@types/mdast": "^4.0.0",
+    "@types/unist": "^3.0.0",
+    "hast-util-raw": "^9.0.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
